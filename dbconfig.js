@@ -1,6 +1,6 @@
 const dbconfigs = {
   development: {
-    host: "basic-app-backend-db",
+    host: "basic-app-db",
     port: "3306",
     user: "root",
     password: "",

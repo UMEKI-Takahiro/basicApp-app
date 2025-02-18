@@ -1,18 +1,18 @@
 version: "2"
 
 services:
-  backend-app:
-    container_name: "basic-app-backend-app"
+  basic-app-app:
+    container_name: "basicApp-app"
     build:
       context: "./"
       dockerfile: "Dockerfile"
     ports:
       - "4001:4000"
     depends_on:
-      - backend-db
+      - basic-app-db
 
-  backend-db:
-    container_name: "basic-app-backend-db"
+  basic-app-db:
+    container_name: "basicApp-db"
     image: mysql:8.0
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
