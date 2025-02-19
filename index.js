@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
         res.send('Failed to select');
         return;
       };
-      res.send(`Hello World! <br><br> ${JSON.stringify(result)}`);
+      res.send(JSON.stringify(result));
     })
   });
 });
