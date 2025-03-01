@@ -14,11 +14,11 @@ const dbconfigs = {
     database: "",
   },
   production: {
-    host: "",
-    port: "",
-    user: "",
+    host: "db.local",
+    port: "3306",
+    user: "root",
     password: "",
-    database: "",
+    database: "INFORMATION_SCHEMA",
   },
 };
 
