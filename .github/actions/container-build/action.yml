@@ -1,0 +1,37 @@
+name: Container Build
+
+description: Build container image and push it to ECR
+
+inputs:
+  ecr-repository-uri:
+    required: true
+    description: ECR URI
+  dockerfile-path:
+    required: true
+    description: path to Dockerfile
+  dockerfile-name:
+    required: true
+    description: Dockerfile name
+
+outputs:
+  container-image:
+    value: ${{ steps.meta.outputs.tags }}
+    description: container image
+
+runs:
+  using: composite
+  steps:
+    - uses: aws-actions/amazon-ecr-login@v2
+    - uses: docker/metadata-action@v5
+      id: meta
+      with:
+        images: ${{ inputs.ecr-repository-uri }}
+        tags: type=sha,format=long
+    - uses: docker/build-push-action@v5
+      with:
+        push: true
+        context: ${{ inputs.dockerfile-path }}
+        file: ${{ inputs.dockerfile-name }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+
