@@ -6,6 +6,8 @@ const app = express();
 
 app.get('/', (req, res) => {
   const env = process.env.NODE_ENV || "development";
+  res.send(`env: ${env}, dbconfig: ${JSON.stringify(dbconfig[env])}`);
+  return;
   const con = mysql.createConnection(dbconfig[env]);
 
   con.connect(function(err) {
