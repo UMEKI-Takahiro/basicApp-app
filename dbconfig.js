@@ -16,8 +16,8 @@ const dbconfigs = {
   production: {
     host: "db.local",
     port: "3306",
-    user: "root",
-    password: "",
+    user: "basicappuser", // tentative
+    password: "basicapppassword", // tentative
     database: "INFORMATION_SCHEMA",
   },
 };
