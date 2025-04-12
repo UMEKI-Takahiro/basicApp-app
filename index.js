@@ -15,14 +15,14 @@ app.get('/', (req, res) => {
       return;
     };
     console.log('Connected');
-    con.query("SELECT * FROM CHARACTER_SETS LIMIT 1", (err, result, fields) => {
+    con.query("SELECT * FROM INFORMATION_SCHEMA.CHARACTER_SETS LIMIT 1", (err, result, fields) => {
       if (err) {
         console.error(err);
         res.send('Failed to select');
         return;
-      };
+      }
       res.send(JSON.stringify(result));
-    })
+    });
   });
 });
 
