@@ -7,6 +7,8 @@ const app = express();
 app.get('/', (req, res) => {
   const env = process.env.NODE_ENV || "development";
   const con = mysql.createConnection(dbconfig[env]);
+  res.send(`env: ${env}, host: ${dbconfig[env].host}`);
+  return;
 
   con.connect(function(err) {
     if (err) {
