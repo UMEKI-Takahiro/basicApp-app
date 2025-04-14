@@ -14,7 +14,7 @@ const dbconfigs = {
     database: "",
   },
   production: {
-    host: "db.local",
+    host: "basic-app-db.cbciycwoc9ui.ap-northeast-1.rds.amazonaws.com",
     port: "3306",
     user: "basicappuser", // tentative
     password: "basicapppassword", // tentative
